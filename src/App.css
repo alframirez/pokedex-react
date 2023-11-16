@@ -1,0 +1,472 @@
+#root {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  margin-top: 4rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.gray-text {
+  color: gray;
+}
+
+/* Navbar Init */
+
+.navbar {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  padding: 0 1rem;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+.navbar h1 {
+  font-weight: bolder;
+}
+.navbar img {
+  z-index: 2;
+}
+.navbar .pokeball-icon {
+  width: 2rem;
+  height: 2rem;
+}
+.navbar .home-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.navbar .text {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.navbar .team-text:hover {
+  background-color: #f57373;
+  border-radius: 0 0.3rem 0.3rem 0;
+  padding: 0.05rem 0;
+}
+.navbar .home-text:hover {
+  background-color: #f57373;
+  border-radius: 0.3rem 0 0 0.3rem;
+  padding: 0.26rem 0;
+}
+.home-text-hovered {
+  animation: home-text-move 0.2s ease-in-out;
+  position: absolute;
+  left: 100%;
+  z-index: 1;
+  background-color: #f57373;
+  border-radius: 0 0.3rem 0.3rem 0;
+  padding: 0.45rem 0.5rem;
+}
+
+@keyframes home-text-move {
+  from {
+    transform: translateX(-100%);
+    color: #f57373;
+    padding: 0.45rem 0rem;
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.team-text-hovered {
+  animation: pokeball-text-move 0.2s ease-in-out;
+  position: absolute;
+  right: 100%;
+  z-index: 1;
+  background-color: #f57373;
+  border-radius: 0.3rem 0 0 0.3rem;
+
+  padding: 0.45rem 0.5rem;
+}
+
+@keyframes pokeball-text-move {
+  from {
+    transform: translateX(100%);
+    color: #f57373;
+    padding: 0.45rem 0rem;
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+/* Navbar End */
+
+/* PokemonCard Init */
+
+.cards-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.cards-container .card {
+  display: flex;
+  margin: 0.5rem;
+  border-radius: 1rem;
+  position: relative;
+  align-items: flex-end;
+  padding: 1rem;
+  width: 15rem;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.cards-container .card:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transform: translateY(-0.3rem);
+}
+
+.cards-container .card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  border-radius: 1rem;
+  color: #fff;
+}
+.cards-container .card .types-list {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: center;
+}
+.cards-container .card .types-list h4 {
+  background-color: rgb(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  color: #fff;
+  padding: 0rem 1rem;
+  width: 2.5rem;
+  margin: 0.3rem;
+  align-self: center;
+}
+
+/* PokemonCard End */
+
+/* PokemonDetails Init */
+
+.details-container {
+  box-sizing: border-box;
+  width: 100%;
+}
+.details-container .card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  position: relative;
+  padding: 1rem;
+  width: 100%;
+}
+.details-container .info-card {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+  transform: translateY(-3.5rem);
+  padding-top: 2.5rem;
+}
+.details-container .card .card-body {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 1rem;
+  color: #fff;
+
+  align-self: center;
+}
+.details-container .card .options-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.details-container .card .options-header .plus-icon {
+  width: 2rem;
+  height: 2rem;
+}
+.details-container .card .options-header i:hover {
+  cursor: pointer;
+  transform: translateY(-0.3rem);
+  color: red;
+}
+.details-container .card .card-body h1 {
+  margin: 0;
+}
+.types-list {
+  display: flex;
+  padding: 1rem 0rem;
+  justify-content: start;
+}
+
+.types-list h4 {
+  border-radius: 1rem;
+  color: #fff;
+  padding: 0rem 1rem;
+  width: 2.5rem;
+  margin: 0.3rem;
+  align-self: initial;
+}
+
+.details-container .pokeball {
+  width: 15rem !important;
+  height: 15rem !important;
+}
+.details-container .pokemon {
+  align-self: center;
+  width: 15rem;
+  height: 15rem;
+  z-index: 2;
+}
+.details-container .info-card .selections {
+  display: flex;
+  justify-content: space-around;
+}
+
+.selections h3:hover {
+  cursor: pointer;
+  transform: translateY(-0.3rem);
+  text-decoration: underline;
+}
+
+.pokeball {
+  background-image: url("./assets/pokeball.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 9rem;
+  height: 9rem;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pokemon {
+  width: 8rem;
+  height: 8rem;
+  z-index: 2;
+}
+
+/* PokemonDetails End */
+
+/* PokemonAbout Init */
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+}
+.about-item {
+  display: flex;
+  justify-content: space-between;
+}
+.about-item h3 {
+  min-width: 15rem;
+}
+
+/* PokemonAbout End */
+
+/* ProgressBar Init */
+
+.progress-bar-container {
+  width: 15rem;
+  height: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin-left: 1rem;
+}
+
+.progress-bar-container .progress-bar {
+  border-radius: 0.5rem;
+  height: 1rem;
+  transition: width 0.5s ease;
+}
+
+/* ProgressBar End */
+
+/* PokemonStats Init */
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-container .stat {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.stats-container .stat h3 {
+  min-width: 7rem;
+}
+
+/* PokmonStats End */
+
+/* PokemonMove Init */
+
+.moves-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.moves-container .move-items {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  /* background-color: aqua; */
+  min-width: 20rem;
+  margin: 1rem;
+}
+
+.moves-container .move-items .move-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  color: #ffff;
+}
+
+/* PokemonMove End */
+
+/* PokemonTeam Init */
+.team-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.team-container button {
+  box-sizing: border-box;
+  background-color: #3b3c3d;
+  border-color: #3b3c3d;
+  color: white;
+  font-weight: bold;
+  width: 20rem;
+  padding: 1rem;
+  /* margin: 0 10rem; */
+  border-radius: 0.3rem;
+}
+.team-container button:hover {
+  cursor: pointer;
+}
+.team-container .team-item-container {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.team-container .team-item-container .delete-pokemon {
+  border-radius: 0 1rem 1rem 0;
+  margin: 0.5rem 0;
+  padding-right: 3rem;
+  display: flex;
+  align-items: center;
+}
+.team-container .team-item-container .delete-pokemon img {
+  width: 5rem;
+  padding: 0;
+}
+.team-container .team-item-container .delete-pokemon img:hover {
+  cursor: pointer;
+  width: 6rem;
+}
+
+.team-container .team-item {
+  margin: 0.5rem 0;
+  padding: 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 1rem 0 0 1rem;
+}
+.team-container .team-item:hover {
+  cursor: pointer;
+}
+.team-container .team-item .team-pokemon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-container .team-item .team-hp {
+  display: flex;
+  align-items: center;
+}
+
+.team-container .team-item .types-list {
+  display: flex;
+}
+
+/* PokemonTeam End */
+
+/* Toast Init */
+.toast {
+  position: fixed;
+  top: 20%;
+  right: 1rem;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  display: none;
+  z-index: 1000;
+  animation: slideIn 0.5s ease-in-out;
+  font-weight: bold;
+}
+
+.toast.show {
+  display: block;
+}
+
+.toast-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toast-message {
+  margin-right: 1rem;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Toast End */
