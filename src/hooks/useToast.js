@@ -4,20 +4,22 @@ import { addToast, deleteToast } from '../state/toastSlice'
 export function useToast () {
   const dispatch = useDispatch()
 
-  const newToast = ({ message, color }) => {
+  const newToast = ({ message, color, defaultDelete = true, time = 3000 }) => {
     const toast = {
       message,
       color
     }
     dispatch(addToast({ toast }))
-    setTimeout(() => {
-      deleteOldToast()
-    }, 3000)
+    if (defaultDelete) {
+      setTimeout(() => {
+        deleteCurrentToast()
+      }, time)
+    }
   }
 
-  const deleteOldToast = () => {
+  const deleteCurrentToast = () => {
     dispatch(deleteToast())
   }
 
-  return { newToast, deleteOldToast }
+  return { newToast, deleteCurrentToast }
 }

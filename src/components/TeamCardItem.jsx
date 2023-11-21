@@ -14,11 +14,11 @@ export function TeamCardItem ({ pokemon }) {
 
   return (
     <div className='team-item' style={style} ref={setNodeRef} {...attributes} {...listeners}>
-      <div className='team-pokemon'>
+      <div className='team-pokemon profile'>
         <img className='pokemon' src={pokemon.sprites.other['official-artwork'].front_default} alt='pokemon-default-image' />
         <h2>{pokemon.name}</h2>
       </div>
-      <div className='team-pokemon'>
+      <div className='team-pokemon details'>
 
         <div className='team-hp'>
           <h3>{pokemon.stats.find(stat => stat.stat.name === 'hp').base_stat} / {pokemon.stats.find(stat => stat.stat.name === 'hp').base_stat}</h3>

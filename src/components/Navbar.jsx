@@ -23,7 +23,7 @@ export function Navbar () {
             Team
           </div>
         )}
-        <img src='/poke.png' alt='team' className='pokeball-icon' />
+        <img src='/poke.svg' alt='team' className='pokeball-icon' />
       </NavLink>
 
     </nav>

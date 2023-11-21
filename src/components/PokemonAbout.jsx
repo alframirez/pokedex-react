@@ -17,7 +17,12 @@ export function PokemonAbout () {
 
       <div className='about-item'>
         <h3 className='gray-text'>Abilities:</h3>
-        <h3>{pokemonDetail.abilities.map(ability => ability.ability.name).join(', ')}</h3>
+        <div className='ability-list'>
+
+          {pokemonDetail.abilities.map(ability => (
+            <h3 key={ability.ability.name}> {ability.ability.name}</h3>
+          ))}
+        </div>
       </div>
 
       <hr />
@@ -26,6 +31,7 @@ export function PokemonAbout () {
         <>
           <div className='about-item'>
             <h3 className='gray-text'>Egg Groups:</h3>
+
             <h3>{pokemonDetail.species.egg_groups.map(eggGroup => eggGroup.name).join(', ')}</h3>
           </div>
 

@@ -33,7 +33,7 @@ export function PokemonTeam () {
             <div key={pokemon.id} className='team-item-container'>
               <TeamCardItem pokemon={pokemon} />
               <div onClick={(event) => handleDeletePokemon(event, pokemon.id, pokemon.name)} className='delete-pokemon' style={{ backgroundColor: pokemon.color }}>
-                <img src='/trash.png' alt='delete pokemon' />
+                <img src='/trash.svg' alt='delete pokemon' />
               </div>
 
             </div>

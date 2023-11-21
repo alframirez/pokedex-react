@@ -15,11 +15,11 @@ export function PokemonCardHeader () {
           <div className='card' style={{ backgroundColor: pokemonDetail.color }}>
             <div className='options-header'>
               <i onClick={() => navigate('/')}>
-                <img src='/arrow.png' alt='go back' className='plus-icon' />
+                <img src='/arrow.svg' alt='go back' className='plus-icon' />
 
               </i>
               <i onClick={() => addPokemonToTeam()}>
-                <img src='/plus.png' alt='add pokemon to team' className='plus-icon' />
+                <img src='/plus.svg' alt='add pokemon to team' className='plus-icon' />
               </i>
             </div>
 

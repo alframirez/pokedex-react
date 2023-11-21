@@ -1,10 +1,18 @@
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { usePokemonScroll } from '../hooks/usePokemonScroll'
 
 export function PokemonCardGroup () {
   const pokemons = useSelector((state) => state.pokemon.pokemonsList)
 
   const navigate = useNavigate()
+  const { offset, handleScroll } = usePokemonScroll()
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [offset])
 
   return (
     <div className='cards-container'>

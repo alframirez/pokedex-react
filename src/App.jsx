@@ -7,22 +7,14 @@ import { getPokemons } from './services/pokemon'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { PokemonDetails } from './pages/PokemonDetails'
 import { PokemonTeam } from './pages/PokemonTeam'
-import { usePokemonScroll } from './hooks/usePokemonScroll'
 import { Toast } from './components/Toast'
 import { useToast } from './hooks/useToast'
 import { Home } from './pages/Home'
 
 function App () {
   const dispatch = useDispatch()
-  const { offset, handleScroll } = usePokemonScroll()
   const { activeToast, status } = useSelector((state) => state.toast)
-
-  const { deleteOldToast } = useToast()
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [offset])
+  const { deleteCurrentToast } = useToast()
 
   useEffect(() => {
     getPokemons().then((pokemons) => dispatch(initPokemons(pokemons)))
@@ -41,7 +33,7 @@ function App () {
         <Toast
           showToast={status}
           message={activeToast.message}
-          onClose={() => deleteOldToast()}
+          onClose={() => deleteCurrentToast()}
           color={activeToast.color}
         />
       </BrowserRouter>
